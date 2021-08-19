@@ -8,4 +8,4 @@
 <title>PhoneBook 주소록 관리</title>
 </head>
 <body>
-	<h1>주소록 Servlet</h1>
+	<h1 style="margin: 5px 40px;">주소록 Servlet</h1><br>

@@ -9,18 +9,32 @@ List<PhoneBookVO> list = (List<PhoneBookVO>) request.getAttribute("list");
 %>
 
 <style>
-th{background-color: rgb(209, 209, 209)}
+* {
+  margin: 0px;
+}
 
+th {
+	background-color: rgb(209, 209, 209)
+}
 
+table {
+	margin: 5px 40px;
+	width: 600px;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
 
 </style>
 
 
+<br>
 
-
-<form action="<%=request.getContextPath()%>/?a=search" method="POST">
+<form style="margin: 5px 40px;" action="<%=request.getContextPath()%>/?a=search" method="POST">
 	<label for="keyword">검색어</label> <input type="text" name="keyword"
-		id="keyword" /><input type="submit" value="검색" />
+		id="keyword" /><input style="margin-left: 5px;" type="submit" value="검색" id="search"/>
 </form>
 
 <table border=1>

@@ -4,8 +4,8 @@
 <%@ include file="/WEB-INF/views/includes/header.jsp" %>
 
 
-<h4>목록 ( 검색어: <%= request.getParameter("keyword")%> )</h4>
-
+<h3 style="margin: 5px 40px;">목록 ( 검색어: <%= request.getParameter("keyword")%> )</h3>
+<br>
 <!-- 동적 페이지 인클루드 -->
 <jsp:include page="/WEB-INF/views/includes/table.jsp">
 	<jsp:param value="테이블" name="message" />
