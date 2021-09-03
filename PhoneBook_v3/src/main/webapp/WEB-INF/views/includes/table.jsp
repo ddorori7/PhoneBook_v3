@@ -8,60 +8,61 @@
 List<PhoneBookVO> list = (List<PhoneBookVO>) request.getAttribute("list");
 %>
 
-<style>
-* {
-  margin: 0px;
-}
 
-th {
-	background-color: rgb(209, 209, 209)
-}
-
-table {
-	margin: 5px 40px;
-	width: 600px;
-	text-align: center;
-}
-
-a {
-	text-decoration: none;
-}
-
-</style>
-
-
-<br>
-
-<form style="margin: 5px 40px;" action="<%=request.getContextPath()%>/?a=search" method="POST">
-	<label for="keyword">검색어</label> <input type="text" name="keyword"
-		id="keyword" /><input style="margin-left: 5px;" type="submit" value="검색" id="search"/>
+<form id="search-form" action="<%=request.getContextPath()%>/?a=search"
+	method="POST" class="float-left">
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<label class="input-group-text" id="inputGroup-sizing-default"
+				for="keyword">검색어</label>
+		</div>
+		<input class="inputText form-control"
+			aria-label="Sizing example input"
+			aria-describedby="inputGroup-sizing-default" type="text"
+			name="keyword" id="keyword" /> <input type="submit"
+			class="btn btn-outline-secondary btn-sm" value="검색" id="search" />
+	</div>
 </form>
 
-<table border=1>
-	<tr>
-		<th>이름</th>
-		<th>휴대전화</th>
-		<th>전화번호</th>
-		<th>도구</th>
-	</tr>
-	<!-- 전화번호 리스트: 목록 -->
-	<!-- 루프 시작 -->
-	<%for (PhoneBookVO vo : list) {%>
-	<tr>
-		<td><%=vo.getName()%></td>
-		<td><%=vo.getHp()%></td>
-		<td><%=vo.getTel()%></td>
-		<td colspan="2">
-			<!-- 삭제 폼 -->
-			<form action="<%=request.getContextPath()%>/phonebook?a=delete"
-				method="POST">
-				<input type="hidden" name="id" value="<%=vo.getId()%>" /> <input
-					type="submit" value="삭제" />
-			</form>
-		</td>
-	</tr>
-	<%
-	}
-	%>
-	<!-- 루프의 끝 -->
+
+<table class="table table-striped">
+	<thead class="table-dark">
+		<tr>
+			<th>이름</th>
+			<th>휴대전화</th>
+			<th>전화번호</th>
+			<th>도구</th>
+		</tr>
+	</thead>
+	<tbody>
+		<!-- 전화번호 리스트: 목록 -->
+		<!-- 루프 시작 -->
+		<%for (PhoneBookVO vo : list) {%>
+		<tr>
+			<td><%=vo.getName()%></td>
+			<td><%=vo.getHp()%></td>
+			<td><%=vo.getTel()%></td>
+			<td colspan="2">
+				<!-- 삭제 폼 -->
+				<form action="<%=request.getContextPath()%>/phonebook?a=delete"
+					method="POST">
+					<input type="hidden" name="id" value="<%=vo.getId()%>" /> <input
+						type="submit" value="삭제" class="btn btn-outline-secondary btn-sm" />
+				</form>
+			</td>
+		</tr>
+		<%
+		}
+		%>
+		<!-- 루프의 끝 -->
+	</tbody>
 </table>
+<div class="clearfix">
+	<button type="button"
+		class="btn btn-outline-secondary btn-sm float-left">
+		<a href="<%=request.getContextPath()%>/phonebook?a=insertform">새
+			주소 추가 </a>
+	</button>
+</div>
+
+</div>
